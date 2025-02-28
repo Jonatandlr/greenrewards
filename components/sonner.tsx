@@ -1,15 +1,22 @@
 "use client"
 
 import type React from "react"
-
 import { useTheme } from "next-themes"
 import { Toaster as Sonner } from "sonner"
 
 type ToasterProps = React.ComponentProps<typeof Sonner>
 
-// Simplified mock of sonner toast
-export function toast({ title, description }: { title?: string; description?: string }) {
-  console.log("Toast:", { title, description })
+type ToastProps = {
+  title?: string
+  description?: string
+  action?: React.ReactNode
+  variant?: "default" | "destructive"
+}
+export type { ToastProps }
+
+// Updated mock of sonner toast with proper types
+export function toast({ title, description, action, variant = "default" }: ToastProps) {
+  console.log("Toast:", { title, description, action, variant })
   // In a real implementation, this would show a toast notification
 }
 
